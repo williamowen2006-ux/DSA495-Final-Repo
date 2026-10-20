@@ -1,22 +1,24 @@
 # DSA-495-Final-Repo
 This is my repo for my final project for DSA 495
 
-Working project title: Packet Sniffing Model For Defensive Internet Analysis
+Working project title: HTTP Request Classifier for Web Traffic Analysis
 
-Team members: William Owen 
+Team members: William Owen
 
-One-sentence task: Given a input of internet packets, I will develop a model to classify them based on whether or not they may indicate harmful traffic 
+One-sentence task: Given the text of an HTTP request captured from network traffic, I will train a model to classify it as benign or potentially malicious.
 
+Illustrative input and desired output:
 
-Illustrative input and desired output: For the input it will look like a network flow, in this example a TCP port 80, HTTP, packet
-POST /tienda1/publico/anadir.jsp
-id=1&nombre=Queso+Manchego&precio=39&cantidad=57&B1=A%F1adir+al+carrito
+The input is the text of one HTTP request (here, a TCP port 80 POST request):
 
-And the model can return something like: 
-{
-  "prediction": "benign",
-  "confidence": 0.97
-}
+   POST /tienda1/publico/anadir.jsp
+   id=1&nombre=Queso+Manchego&precio=39&cantidad=57&B1=A%F1adir+al+carrito
+
+The model returns a label and a confidence score:
+    {
+      "prediction": "benign",
+      "confidence": 0.97
+    }
 
 Background and starting point: I am interested in this topic because I come from a heavy Cybersecurity interest. I spend a large amount of my free time studying and practicing things related to the world of 
 cybersecurity and I recently have grown great interest in the world of networks and network security. It is the field I want to work in for my career so I think this project could be a great experience! 
@@ -30,12 +32,8 @@ Normal: modo=insertar&precio=5588&B1=Confirmar
 Attack: modo=registro&login=' OR 1=1 --&password=x&B1=Registrar
 This supports the task because each input is a string with a binary label and can map well to my output. Attacks often contain similar character patterns so it should be detectable. A backup corpus might be ECML-PKDD 2007 web request data which is in the same labeled HTTP format so the code should still function. 
 
-Feasibility and immediate next steps: The minimum viable project would be a simple model that reads in the data, and returns its best guess based off a small input. Ideally I would train the model and tune it well to work on this data. No team member has yet accessed the data. I think the current largest risk is if a model struggles with the complexity of the requests, they can be quite hard to parse. The current backup plan might be switching to something like a network packet that would be a bit more simple. The next two acctions 
+Feasibility and immediate next steps: The minimum viable project would be a simple model that reads in the data, and returns its best guess based off a small input. Ideally I would train the model and tune it well to work on this data. No team member has yet accessed the data. I think the current largest risk is if a model struggles with the complexity of the requests, they can be quite hard to parse. The current backup plan might be switching to something like a network packet that would be a bit more simple. The next two actions are to set up the inital code and test if this is a viable dataset and feasible project.  
 
-Define the minimum viable project, report whether a team member has accessed the data, identify the largest current risk and a backup plan, and assign the next two actions to team members with approximate target dates.
+Questions for the instructor: Is this a proper scope for this project and class? Is it too specific or not broad enough? 
 
-Possible method and evaluation (optional): If the team already has ideas, identify possible text-analysis methods and how you might determine whether the output performs well or is useful. It is acceptable to leave this undecided.
-
-Questions for the instructor: Ask for the feedback your team needs about scope, data, methods, evaluation, tools, or risks. Write “No additional questions at this time” if none remain.
-
-AI-use statement: Identify any generative or agentic AI tool used to prepare the brief, how it was used, what work preceded it, which advice was incorporated, and how the result was verified. State clearly if no such tool was used.
+AI-use statement: I used Copilot AI tooling to help me identify the viable datasets and explain their contents and background. 
